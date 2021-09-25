@@ -125,3 +125,15 @@ h5 {
     color: red;
     display: inline;
   }
+
+  @media screen and (max-width: 600px) {
+    .submit {
+        width: 50vw;
+    }
+
+    .input {
+        font-size: 3vw;
+        margin: auto;
+    }
+
+  }

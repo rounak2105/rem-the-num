@@ -1,0 +1,44 @@
+<header> 
+    <h2>Remember The Number</h2>
+  </header>
+  <section class="level">
+    <h5>Level {{currentLevel}}</h5>
+  </section>
+  <section class="window">
+    <section *ngIf="!gameStarted && !gameGuess" (click)="startGame()" class="start">
+      <h6>Start 🗝</h6>
+    </section>
+    <section *ngIf="gameStarted" class="game">
+      <h2>{{noToRem}}</h2>
+    </section>
+    <section *ngIf="gameGuess" class="guess">
+      <input #boxin (keyup.enter)="guessedNumber(boxin.value)" class="input" placeholder="Enter the number">
+      <section *ngIf="gameGuess" class="submit" (click)="guessedNumber(boxin.value)">
+        <h5>Submit</h5>
+      </section>
+    </section>
+  </section>
+
+  <section *ngIf="gameLost" class="counter">
+    <p>YOU LOST!</p>
+  </section>
+  <section *ngIf="gameLost" class="counter">
+    <p>LEVEL REACHED {{currentLevel}}</p>
+  </section>
+  <section *ngIf="gameLost" class="counter">
+    <p>GAME OVER!</p>
+  </section>
+  <section *ngIf="gameLost && newScore" class="counter">
+    <p>NEW HIGH SCORE!</p>
+  </section>
+
+
+  <section *ngIf="gameStarted" class="counter">
+    <h5>{{counter.sec}}</h5>
+  </section>
+
+  <section *ngIf="newScore" class="guess">
+    <input #scorein (keyup.enter)="highScore(scorein.value)" class="input" placeholder="Enter your name">
+    <section *ngIf="newScore" class="submit" (click)="highScore(scorein.value)">
+      <h5>Submit High Score</h5>
+  </section>
