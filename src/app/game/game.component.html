@@ -11,9 +11,9 @@
     <section *ngIf="gameStarted" class="game">
       <h2>{{noToRem}}</h2>
     </section>
-    <section *ngIf="gameGuess" class="guess">
+    <section *ngIf="gameGuess && !gameLost" class="guess">
       <input #boxin (keyup.enter)="guessedNumber(boxin.value)" class="input" placeholder="Enter the number">
-      <section *ngIf="gameGuess" class="submit" (click)="guessedNumber(boxin.value)">
+      <section *ngIf="gameGuess && !gameLost" class="submit" (click)="guessedNumber(boxin.value)">
         <h5>Submit</h5>
       </section>
     </section>

@@ -44,7 +44,7 @@ export class GameComponent{
 
   startTimer(secs) {
     this.counter = { sec: secs }
-    let intervalId = setInterval(() => {
+    setInterval(() => {
       if (this.counter.sec - 1 == -1) {
         this.counter.sec = 59
       } 
@@ -57,7 +57,7 @@ export class GameComponent{
     this.noToRem = this.getRandom(this.currentLevel+2)
     this.gameStarted = true;
     if(this.currentLevel!=1)
-      this.startTimer(10 + this.currentLevel*5)
+      this.startTimer(10 + this.currentLevel*2)
     else
       this.startTimer(5);
   }
